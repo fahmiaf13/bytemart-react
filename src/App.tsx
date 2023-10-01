@@ -1,12 +1,10 @@
-import "./App.css";
-import { Button } from "@/components/ui/button";
+import Routes from "@/routes";
+import { HelmetProvider } from "react-helmet-async";
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <Button variant="outline">Hello</Button>
-    </div>
+    <HelmetProvider>
+      <Routes />
+    </HelmetProvider>
   );
 }
-
-export default App;
