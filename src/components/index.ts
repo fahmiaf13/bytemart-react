@@ -1,4 +1,4 @@
 import Navbar from "./Navbar";
-import Pagination from "./Pagination";
+import Footer from "./Footer";
 
-export { Navbar, Pagination };
+export { Navbar, Footer };

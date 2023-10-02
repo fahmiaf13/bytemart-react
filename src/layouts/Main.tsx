@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar } from "@/components";
 import { Helmet } from "react-helmet-async";
+import Footer from "@/components/Footer";
 
 interface IPropsLayout {
   children: React.ReactNode;
@@ -18,6 +19,7 @@ const Main = ({ children, title }: IPropsLayout) => {
       </Helmet>
       <Navbar />
       <section>{children}</section>
+      <Footer />
     </React.Fragment>
   );
 };
