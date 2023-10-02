@@ -36,7 +36,9 @@ const Navbar = () => {
   const handleQuantityChange = (itemId: number, quantity: string) => {
     const newQuantity = parseInt(quantity, 10);
 
-    if (!isNaN(newQuantity) && newQuantity >= 0) {
+    if (isNaN(newQuantity) || newQuantity < 1) {
+      dispatch(setItemQuantity({ itemId, newQuantity: 1 }));
+    } else {
       dispatch(setItemQuantity({ itemId, newQuantity }));
     }
   };
@@ -79,7 +81,7 @@ const Navbar = () => {
                           <button onClick={() => dispatch(decrementQuantity(item.id))}>
                             <Icon icon="mdi:minus-box" width={24} />
                           </button>
-                          <Input type="number" className="w-1/4 h-1 focus-visible:ring-0 rounded-sm" onChange={(e) => handleQuantityChange(item.id, e.target.value)} value={item.quantity} />
+                          <Input type="text" className="w-1/4 h-1 focus-visible:ring-0 rounded-sm" onChange={(e) => handleQuantityChange(item.id, e.target.value)} value={item.quantity} />
                           <button onClick={() => dispatch(incrementQuantity(item.id))}>
                             <Icon icon="mdi:plus-box" width={24} />
                           </button>
